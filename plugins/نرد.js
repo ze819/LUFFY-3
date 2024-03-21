@@ -1,0 +1,17 @@
+const dir = [
+  'https://raw.githubusercontent.com/Dark-Man747/worker-bot/main/dado/dado1.webp',
+  'https://raw.githubusercontent.com/Dark-Man747/worker-bot/main/dado/dado2.webp',
+  'https://raw.githubusercontent.com/Dark-Man747/worker-bot/main/dado/dado3.webp',
+  'https://raw.githubusercontent.com/Dark-Man747/worker-bot/main/dado/dado4.webp',
+  'https://raw.githubusercontent.com/Dark-Man747/worker-bot/main/dado/dado5.webp',
+  'https://raw.githubusercontent.com/Dark-Man747/worker-bot/main/dado/dado6.webp'
+];
+let handler = async (m, { conn }) => {
+  conn.sendFile(m.chat, dir[Math.floor(Math.random() * dir.length)], 'dado.webp', '', m,true,  { contextInfo: { forwardingScore: 200, isForwarded: false, externalAdReply:{ showAdAttribution: false, title: wm, body: `【𝟐𝟎𝟎𝟓/𝟐/𝟏𝟎】١⁵`, mediaType: 2, sourceUrl: nn, thumbnail: imagen1}}}, { quoted: m })
+ 
+}
+handler.help = ['dado']
+handler.tags = ['game']
+handler.command = ['dado', 'dados','نرد'] 
+
+export default handler

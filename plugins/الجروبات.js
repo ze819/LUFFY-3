@@ -1,0 +1,12 @@
+let handler = async (m, { conn }) => {
+let txt = ''
+for (let [jid, chat] of Object.entries(conn.chats).filter(([jid, chat]) => jid.endsWith('@g.us') && chat.isChats)) txt += `\n—◉ ${await conn.getName(jid)}\n➤ ${jid} [${chat?.metadata?.read_only ? 'لا يوجد مشاركون' : 'مشارك'}]\n\n`
+m.reply(`*صفحه الجروبات اللي البوت فيها♥️✨:*
+${txt}
+`.trim())
+}
+handler.help = ['groups', 'grouplist']
+handler.tags = ['info']
+handler.command = /^(الجروبات|المجموعات|قروبات)$/i
+handler.rowner = true
+export default handler
