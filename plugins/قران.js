@@ -1,62 +1,79 @@
 import fetch from 'node-fetch';
-import translate from '@vitalets/google-translate-api';
 
-let quranSurahHandler = async (m, { conn, usedPrefix, command }) => {
+const fetchQuranData = async (surahNumber) => {
   try {
-    let surahInput = m.text.split(' ')[1];
-
-    if (!surahInput) {
-      throw new Error(`*يرجى تحديد رقم السورة*\n\n    *${usedPrefix + command}* 1`);
-    }
-
-    let surahListRes = await fetch('https://quran-endpoint.vercel.app/quran');
-    let surahList = await surahListRes.json();
-
-    let surahData = surahList.data.find(surah => 
-        surah.number === Number(surahInput) || 
-        surah.asma.ar.short.toLowerCase() === surahInput.toLowerCase() || 
-        surah.asma.en.short.toLowerCase() === surahInput.toLowerCase()
-    );
-
-    if (!surahData) {
-      throw new Error(`*تعذر العثور على سورة برقم أو اسم "${surahInput}"*`);
-    }
-
-    let res = await fetch(`https://quran-endpoint.vercel.app/quran/${surahData.number}`);
-    
-    if (!res.ok) {
-      let error = await res.json(); 
-      throw new Error(`*خطاء في${res.status} الرساله ${error.message}*`);
-    }
-
-    let json = await res.json();
-
-
-    // Translate tafsir from Bahasa Indonesia to AR
-    let translatedTafsirar = await translate(json.data.tafsir.id, { to: 'ar', autoCorrect: true });
-
-    let quranSurah = `
-🕌 *القرآن: الكتاب المقدس*\n
-📜 *سورة ${json.data.number}: ${json.data.asma.ar.long}*\n
-🕋 *النوع: ${json.data.type.ar}*\n
-🔢 *عدد الآيات: ${json.data.ayahCount}*\n
-🧾 *التوضيح (عربي):*\n
-${translatedTafsirar.text}*`;
-
-    m.reply(quranSurah);
-
-    if (json.data.recitation.full) {
-      conn.sendFile(m.chat, json.data.recitation.full, 'quran.mp3', null, m, true, { type: 'audioMessage', ptt: true });
-    }
+    const response = await fetch(`https://quran-wudy.vercel.app/surah/${surahNumber}`);
+    const data = await response.json();
+    return data.data.verses;
   } catch (error) {
     console.error(error);
-    m.reply(`*[❗تنبـيـه❗]*
- ${error.message}`);
+    return null;
   }
 };
 
-quranSurahHandler.help = ['quran [surah_number|surah_name]'];
-quranSurahHandler.tags = ['quran', 'surah'];
-quranSurahHandler.command = ['quran', 'surah','القران','قران','القرآن','قرآن']
+const handler = async (m, { conn }) => {
+  conn.quranData = conn.quranData ? conn.quranData : {};
 
-export default quranSurahHandler;
+  const surahNumber = parseInt(m.text.split(' ')[1]);
+  if (isNaN(surahNumber) || surahNumber < 1 || surahNumber > 114) {
+    m.reply("*البحث عن أي آية في القرآن بالصوت والقراءة:*\n*.قران 19*\n\n*يقوم الامر بختصار ارسال ایات السورة المعينة من 1 الی 114 سوره و ترد علی قائمة السورة رقم الایه و البوت يرسل المقطع صوتي يقرأ الآية*");
+    return;
+  }
+
+  const ayahs = await fetchQuranData(surahNumber);
+  if (!ayahs) {
+    m.reply("Failed to fetch Quran data.");
+    return;
+  }
+
+  const formattedList = Object.values(ayahs).map(v => (
+    `*${v.number.inSurah}.* ${v.text.arab}`
+  )).join('\n');
+
+  const instructions = "*قم بالرد على هذه الرسالة برقم الآية المطلوب لاستقبال الصوت*";
+
+  let { key } = await m.reply(`*📖 قائمة الآيات سورة الرقم [ *${surahNumber}* ]:*\n*─────── • ◈ • ───────*\n*${formattedList}\n\n${instructions}`);
+  
+  // Add reaction to mark completion
+  
+
+  // Store the Quran data in conn.quranData variable for later use
+  conn.quranData[m.chat] = { list: Object.values(ayahs), key };
+};
+
+handler.before = async (m, { conn }) => {
+  conn.quranData = conn.quranData ? conn.quranData : {};
+
+  if (m.isBaileys || !(m.chat in conn.quranData)) return;
+  const input = m.text.trim();
+  if (!/^\d+$/.test(input)) return; // If the input is not a number, do nothing
+
+  const { list, key } = conn.quranData[m.chat];
+  if (!m.quoted || m.quoted.id !== key.id || !m.text) return;
+  const index = parseInt(input);
+
+  if (isNaN(index) || index < 1 || index > list.length) {
+    m.reply("*❌ خطأ*\n*رقم ایة لیس متوفرا في قائمة ايات السورة*\n\n*رد علی قائمة ايات السورة اللتي فيها ارقام الايات المذكوره*");
+  } else {
+    const selectedObj = list[index - 1];
+
+    // Check if the message is a reply and the quoted message id matches the key.id from the list
+    await conn.sendMessage(m.chat, {
+      audio: {
+        url: selectedObj.audio.primary,
+      },
+      mimetype: "audio/mpeg",
+      filename: "quran_audio.mp3",
+      ptt: true,
+    }, { quoted: m });
+
+    clearTimeout(conn.quranData[m.chat].timeout);
+    //delete conn.quranData[m.chat];
+  }
+};
+
+handler.help = ['ayta'].map(v => v + ' *surah*')
+handler.tags = ['islam']
+handler.command = /^قران|أیات|ايه|اية|أية|ايات|آيه$/i;
+
+export default handler;
