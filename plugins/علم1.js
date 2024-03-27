@@ -8,7 +8,7 @@ let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status
         conn.reply(m.chat, '❐┃لم يتم الاجابة علي السؤال بعد┃❌ ❯', conn.tokitoki[id][0])
         throw false
     }
-    let src = await (await fetch('https://raw.githubusercontent.com/kimos71/AURTER-BOT/main/Games/Flags.json')).json()
+    let src = await (await fetch('https://raw.githubusercontent.com/ze819/game/master/src/game.js/luffy1.json')).json()
   let json = src[Math.floor(Math.random() * src.length)]
     let caption = `*❰❖── ~『𝐿𝑈𝐹𝐹𝑌-𝐵𝛩𝑇』~──❖❱*\n *•┇❖↞استخدم انسحب للانسحاب┇🇸🇦❯*
  *•┃❖↞الـوقـت⏳↞* *${(timeout / 1000).toFixed(2)}* *ثانية┇❯*
@@ -27,6 +27,6 @@ let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status
 }
 handler.help = ['guesseye']
 handler.tags = ['game']
-handler.command = /^علم/i
+handler.command = /^علم$/i
 
 export default handler
