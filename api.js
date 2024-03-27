@@ -1,69 +1,73 @@
-import { watchFile, unwatchFile } from 'fs'
-import chalk from 'chalk'
-import { fileURLToPath } from 'url'
-import fs from 'fs'
-import cheerio from 'cheerio'
-import fetch from 'node-fetch'
-import axios from 'axios'
-import moment from 'moment-timezone' 
+import {watchFile, unwatchFile} from 'fs';
+import chalk from 'chalk';
+import {fileURLToPath} from 'url';
+import fs from 'fs';
+import cheerio from 'cheerio';
+import fetch from 'node-fetch';
+import axios from 'axios';
+import moment from 'moment-timezone';
 
-/*si quieres modificar esto y agregarr mas apis asegurate poner global.tuapi = ['apikey']  skid 🤑 */
+/* Para agregar más APIs asegurate de poner global.apiname = ['APIKey'] */ /* By Skid 🤑 */
 
-global.openai_key = 'sk-0'
-/* Consigue tu ApiKey en este enlace: https://platform.openai.com/account/api-keys */
+global.openai_key = 'sk-0';
+/* Obtén tu API Key en este enlace: https://platform.openai.com/account/api-keys */
 
-global.openai_org_id = 'org-3'
-/* Consigue tu ID de organizacion en este enlace: https://platform.openai.com/account/org-settings */
+global.openai_org_id = 'org-3';
+/* Obtén tu ID de organización en este enlace: https://platform.openai.com/account/org-settings */
 
 
-global.keysZens = ['LuOlangNgentot', 'c2459db922', '37CC845916', '6fb0eff124', 'hdiiofficial', 'fiktod', 'BF39D349845E', '675e34de8a', '0b917b905e6f']
-global.keysxxx = keysZens[Math.floor(keysZens.length * Math.random())]
-global.keysxteammm = ['29d4b59a4aa687ca', '5LTV57azwaid7dXfz5fzJu', 'cb15ed422c71a2fb', '5bd33b276d41d6b4', 'HIRO', 'kurrxd09', 'ebb6251cc00f9c63']
-global.keysxteam = keysxteammm[Math.floor(keysxteammm.length * Math.random())]
-global.keysneoxrrr = ['5VC9rvNx', 'cfALv5']
-global.keysneoxr = keysneoxrrr[Math.floor(keysneoxrrr.length * Math.random())]
-global.lolkeysapi = ['BrunoSobrino_2'] //['GataDios']
-global.itsrose = ['4b146102c4d500809da9d1ff']
+global.keysZens = ['LuOlangNgentot', 'c2459db922', '37CC845916', '6fb0eff124', 'hdiiofficial', 'fiktod', 'BF39D349845E', '675e34de8a', '0b917b905e6f'];
+global.keysxxx = keysZens[Math.floor(keysZens.length * Math.random())];
+global.keysxteammm = ['29d4b59a4aa687ca', '5LTV57azwaid7dXfz5fzJu', 'cb15ed422c71a2fb', '5bd33b276d41d6b4', 'HIRO', 'kurrxd09', 'ebb6251cc00f9c63'];
+global.keysxteam = keysxteammm[Math.floor(keysxteammm.length * Math.random())];
+global.keysneoxrrr = ['5VC9rvNx', 'cfALv5'];
+global.keysneoxr = keysneoxrrr[Math.floor(keysneoxrrr.length * Math.random())];
+global.lolkeysapi = ['GataDios']; // ['BrunoSobrino_2']
+global.itsrose = ['4b146102c4d500809da9d1ff'];
 
-global.APIs = { 
+global.APIs = {
+  CFROSAPI: 'https://api.cafirexos.com',
   xteam: 'https://api.xteam.xyz',
   dzx: 'https://api.dhamzxploit.my.id',
   lol: 'https://api.lolhuman.xyz',
-  violetics: 'https://violetics.pw',
   neoxr: 'https://api.neoxr.my.id',
   zenzapis: 'https://api.zahwazein.xyz',
   akuari: 'https://api.akuari.my.id',
-  akuari2: 'https://apimu.my.id',	
+  akuari2: 'https://apimu.my.id',
   fgmods: 'https://api-fgmods.ddns.net',
   botcahx: 'https://api.botcahx.biz.id',
-  ibeng: 'https://api.ibeng.tech/docs',	
+  ibeng: 'https://api.ibeng.tech/docs',
   rose: 'https://api.itsrose.site',
-  popcat : 'https://api.popcat.xyz',
-  xcoders : 'https://api-xcoders.site'
+  popcat: 'https://api.popcat.xyz',
+  xcoders: 'https://api-xcoders.site',
+  vihangayt: 'https://vihangayt.me',
+  erdwpe: 'https://api.erdwpe.com',
+  xyroinee: 'https://api.xyroinee.xyz',
+  nekobot: 'https://nekobot.xyz'
 },
-global.APIKeys = { 
+global.APIKeys = {
   'https://api.xteam.xyz': `${keysxteam}`,
   'https://api.lolhuman.xyz': 'GataDios',
-  'https://api.neoxr.my.id': `${keysneoxr}`,	
-  'https://violetics.pw': 'beta',
+  'https://api.neoxr.my.id': `${keysneoxr}`,
   'https://api.zahwazein.xyz': `${keysxxx}`,
   'https://api-fgmods.ddns.net': 'fg-dylux',
   'https://api.botcahx.biz.id': 'Admin',
   'https://api.ibeng.tech/docs': 'tamvan',
   'https://api.itsrose.site': 'Rs-Zeltoria',
-  'https://api-xcoders.site': 'Frieren'
-}
+  'https://api-xcoders.site': 'Frieren',
+  'https://api.xyroinee.xyz': 'uwgflzFEh6'
+};
 
-/**************************/
-global.cheerio = cheerio
-global.fs = fs
-global.fetch = fetch
-global.axios = axios
-global.moment = moment	
+/** ************************/
+global.cheerio = cheerio;
+global.fs = fs;
+global.fetch = fetch;
+global.axios = axios;
+global.moment = moment;
 global.rpg = {
-emoticon(string) {
-string = string.toLowerCase()
-let emot = {
+  emoticon(string) {
+    string = string.toLowerCase();
+    const emot = {
       level: '🧬 Nivel',
       limit: '💎 Diamante',
       exp: '⚡ Experiencia',
@@ -118,12 +122,12 @@ let emot = {
       ayam: '🐓 Pollo',
       babi: '🐖 Puerco',
       Jabali: '🐗 Jabali',
-      bull: '🐃 Toro',    
-      buaya: '🐊 Cocodrilo',    
-      cat: '🐈 Gato',      
+      bull: '🐃 Toro',
+      buaya: '🐊 Cocodrilo',
+      cat: '🐈 Gato',
       centaur: '🐐 Centauro',
       chicken: '🐓 Pollo',
-      cow: '🐄 Vaca', 
+      cow: '🐄 Vaca',
       dog: '🐕 Perro',
       dragon: '🐉 Dragón',
       elephant: '🐘 Elefante',
@@ -147,16 +151,16 @@ let emot = {
       ikan: '🐟 Pez',
       fideos: '🍝 Fideos',
       ramuan: '🧪 Ingrediente NOVA',
-      knife: '🔪 Cuchillo'
-    }
-let results = Object.keys(emot).map(v => [v, new RegExp(v, 'gi')]).filter(v => v[1].test(string))
-if (!results.length) return ''
-else return emot[results[0][0]]
-}}
-global.rpgg = { //Solo emojis 
-emoticon(string) {
-string = string.toLowerCase()
-    let emott = {
+      knife: '🔪 Cuchillo',
+    };
+    const results = Object.keys(emot).map((v) => [v, new RegExp(v, 'gi')]).filter((v) => v[1].test(string));
+    if (!results.length) return '';
+    else return emot[results[0][0]];
+  }};
+global.rpgg = { // Solo emojis
+  emoticon(string) {
+    string = string.toLowerCase();
+    const emott = {
       level: '🧬',
       limit: '💎',
       exp: '⚡',
@@ -211,18 +215,18 @@ string = string.toLowerCase()
       ayam: '🐓',
       babi: '🐖',
       Jabali: '🐗',
-      bull: '🐃',    
-      buaya: '🐊',    
-      cat: '🐈',      
+      bull: '🐃',
+      buaya: '🐊',
+      cat: '🐈',
       centaur: '🐐',
       chicken: '🐓',
-      cow: '🐄', 
+      cow: '🐄',
       dog: '🐕',
       dragon: '🐉',
       elephant: '🐘',
       fox: '🦊',
       giraffe: '🦒',
-      griffin: '🦅', 
+      griffin: '🦅',
       horse: '🐎',
       kambing: '🐐',
       kerbau: '🐃',
@@ -240,16 +244,16 @@ string = string.toLowerCase()
       ikan: '🐟',
       fideos: '🍝',
       ramuan: '🧪',
-      knife: '🔪'
-    }
-let results = Object.keys(emott).map(v => [v, new RegExp(v, 'gi')]).filter(v => v[1].test(string))
-if (!results.length) return ''
-else return emott[results[0][0]]
-}}
-global.rpgshop = { //Tienda
-emoticon(string) {
-string = string.toLowerCase()
-    let emottt = {
+      knife: '🔪',
+    };
+    const results = Object.keys(emott).map((v) => [v, new RegExp(v, 'gi')]).filter((v) => v[1].test(string));
+    if (!results.length) return '';
+    else return emott[results[0][0]];
+  }};
+global.rpgshop = { // Tienda
+  emoticon(string) {
+    string = string.toLowerCase();
+    const emottt = {
       exp: '⚡ Experiencia',
       limit: '💎 Diamante',
       diamond: '💎 Diamante',
@@ -281,7 +285,7 @@ string = string.toLowerCase()
       serigala: '🐺🌫️ Super Lobo',
       kayu: '🛷 Super Madera',
       sword: '⚔️ Espada',
-      umpan: '🪱 Carnada', 
+      umpan: '🪱 Carnada',
       healtmonster: '💵 Billetes',
       emas: '🪅 Piñata',
       pancingan: '🪝 Gancho',
@@ -289,8 +293,8 @@ string = string.toLowerCase()
       common: '📦 Caja Común',
       uncoommon: '🥡 Caja Poco Común',
       mythic: '🗳️ Caja Mítica',
-      pet: '📫 Caja de Mascotas',//?
-      gardenboxs: '💐 Caja de Jardinería',//?
+      pet: '📫 Caja de Mascotas', // ?
+      gardenboxs: '💐 Caja de Jardinería', // ?
       legendary: '🎁 Caja Legendaria',
       anggur: '🍇 Uva',
       apel: '🍎 Manzana',
@@ -311,22 +315,22 @@ string = string.toLowerCase()
       phonix: '🕊️ Fénix',
       wolf: '🐺 Lobo',
       anjing: '🐶 Perro',
-      petFood: '🍖 Alimento para Mascota', //?
+      petFood: '🍖 Alimento para Mascota', // ?
       makanancentaur: '🐐🥩 Comida de Centauro',
       makanangriffin: '🦅🥩 Comida de Ave',
       makanankyubi: '🌀🥩 Comida Mágica',
       makanannaga: '🐉🥩 Comida de Dragón',
       makananpet: '🍱🥩 Alimentos de mascotas',
-      makananphonix: '🕊️🥩 Comida de Fénix'  
-    }
-let results = Object.keys(emottt).map(v => [v, new RegExp(v, 'gi')]).filter(v => v[1].test(string))
-if (!results.length) return ''
-else return emottt[results[0][0]]
-}}
-global.rpgshopp = { //Tienda
+      makananphonix: '🕊️🥩 Comida de Fénix',
+    };
+    const results = Object.keys(emottt).map((v) => [v, new RegExp(v, 'gi')]).filter((v) => v[1].test(string));
+    if (!results.length) return '';
+    else return emottt[results[0][0]];
+  }};
+global.rpgshopp = { // Tienda
   emoticon(string) {
-    string = string.toLowerCase()
-    let emotttt = {
+    string = string.toLowerCase();
+    const emotttt = {
       exp: '⚡',
       limit: '💎',
       diamond: '💎+',
@@ -358,7 +362,7 @@ global.rpgshopp = { //Tienda
       serigala: '🐺🌫️',
       kayu: '🛷',
       sword: '⚔️',
-      umpan: '🪱', 
+      umpan: '🪱',
       healtmonster: '💵',
       emas: '🪅',
       pancingan: '🪝',
@@ -366,8 +370,8 @@ global.rpgshopp = { //Tienda
       common: '📦',
       uncoommon: '🥡',
       mythic: '🗳️',
-      pet: '📫',//?
-      gardenboxs: '💐',//?
+      pet: '📫', // ?
+      gardenboxs: '💐', // ?
       legendary: '🎁',
       anggur: '🍇',
       apel: '🍎',
@@ -388,21 +392,22 @@ global.rpgshopp = { //Tienda
       phonix: '🕊️',
       wolf: '🐺',
       anjing: '🐶',
-      petFood: '🍖', //?
+      petFood: '🍖', // ?
       makanancentaur: '🐐🥩',
       makanangriffin: '🦅🥩',
       makanankyubi: '🌀🥩',
       makanannaga: '🐉🥩',
       makananpet: '🍱🥩',
-      makananphonix: '🕊️🥩'  
-    }
-let results = Object.keys(emotttt).map(v => [v, new RegExp(v, 'gi')]).filter(v => v[1].test(string))
-if (!results.length) return ''
-else return emotttt[results[0][0]]
-}}	
-	
-let file = fileURLToPath(import.meta.url)
+      makananphonix: '🕊️🥩',
+    };
+    const results = Object.keys(emotttt).map((v) => [v, new RegExp(v, 'gi')]).filter((v) => v[1].test(string));
+    if (!results.length) return '';
+    else return emotttt[results[0][0]];
+  }};
+
+const file = fileURLToPath(import.meta.url);
 watchFile(file, () => {
-unwatchFile(file)
-console.log(chalk.redBright("Update 'config.js'"))
-import(`${file}?update=${Date.now()}`)})
+  unwatchFile(file);
+  console.log(chalk.redBright('Update \'api.js\''));
+  import(`${file}?update=${Date.now()}`);
+});
