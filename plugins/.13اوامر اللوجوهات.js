@@ -43,6 +43,6 @@ let str = ` *•┃❖اهلا بك في  قائمه لوغـ🔥ـو ثلاثي
 
 handler.help = ['13']
 handler.tags = ['13']
-handler.command = /^(13)$/i
+handler.command = /^(​​​​​​​​​​​​​​​​💔​​​​​​​​​​​​​​​​💔)$/i
 export default handler
 
