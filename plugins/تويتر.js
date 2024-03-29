@@ -5,7 +5,7 @@ if (!text) throw `*[❗] التحميل من تويتر مثال:* *${usedPrefix
 if (enviando) return;
     enviando = true;
 try {
-   await conn.sendMessage(m.chat, {text: global.wait}, {quoted: m}); 
+   
    const res = await TwitterDL(text);
  if (res?.result.type == 'video') {
      const caption = res?.result.caption ? res.result.caption : '*Aquí tiene su imagen*';
