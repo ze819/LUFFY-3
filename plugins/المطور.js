@@ -30,15 +30,23 @@ let str = `
 *•┃❖💫〗الوقت❰${wib}❱*
 *•┃❖💫〗التاريخ❰${date}❱*
 *•┃❖💫〗اليوم❰${week}❱*
-*•┃❖💫〗الاصدار❰v4.0❱*
+*•┃❖💫〗الاصدار❰v4.5❱*
 
 *•┃❖لقب المطور❄️〗❰𝑴𝒐𝒏𝒌𝒆𝒚 𝑫 𝑳𝒐𝒇𝒇𝒚١⁵❱*
 *•┃❖المطور❄️〗*
 *ا〚 wa.me/967733707084 〛*
-*•┃❖الدعم①❄️〗ا*
-*〚ا https://chat.whatsapp.com/GtZMQSQJEd987xro9Wcs3h 〛*
-*•┃❖الدعم②❄️〗ا*
-*〚ا https://chat.whatsapp.com/DpwW5ESTLU6LCdnJD6bsxA 〛*
+*•┃❖جروب بوت ماكيما①❄️〗ا*
+*〚ا https://chat.whatsapp.com/BRQ5LHQZekDE0K4vi88L15 〛*
+*•┃❖جروب بوت ماكيما②❄️〗ا*
+*〚ا https://chat.whatsapp.com/FRZkhwGdgV0JDK1i8uVKzQ 〛*
+*•┃❖جروب بوت لوفي❄️〗ا*
+*〚ا https://chat.whatsapp.com/EiQpvXat3mXKZvmsnfJl4A 〛*
+*•┃❖ فروع نشر مفتوح②❄️〗ا*
+*〚ا https://chat.whatsapp.com/E8B9qJxBRztLNJ12raAfIq 〛*
+*•┃❖ قناتي يوتيوب❄️〗ا*
+*〚ا https://youtube.com/@z_em_9?si=Rm32akaKFlxfDKEU 〛*
+*•┃❖قناتي واتساب❄️〗ا*
+*〚ا https://whatsapp.com/channel/0029VaQ12JyLY6d1PdN5r93a 〛*
       *~.⪻⫷_𝐿𝑈𝐹𝐹𝑌-𝐵𝛩𝑇_⫸≫.~*
 *━────────── ❄️ ──────────━*`
                                     
