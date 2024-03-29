@@ -19,7 +19,7 @@ conn.sendMessage(m.chat, { audio: { url: vn }, fileName: 'error.mp3', mimetype: 
 
 if (/^بوت|بووت|بوووت|بووووت/i.test(m.text) && chat.audios) {  
 if (!db.data.chats[m.chat].audios && m.isGroup) throw 0    
-let vn = 'https://telegra.ph/file/3c9c24c8a4b42af5cce9c.png'
+let vn = 'https://telegra.ph/file/2acb8a60680151c16a808.jpg'
 this.sendPresenceUpdate('recording', m.chat)   
 this.sendFile(m.chat, vn, 'error.mp3', `*اسمي لوفي لعرض الاوامر اكتب .اوامر*`, fkontak); };
 
