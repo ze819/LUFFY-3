@@ -11,5 +11,5 @@ mentions: m.mentionedJid
 } : {})
 handler.help = ['pregunta <texto>?']
 handler.tags = ['kerang']
-handler.command = /^لوفي$/i
+handler.command = /^هل$/i
 export default handler
