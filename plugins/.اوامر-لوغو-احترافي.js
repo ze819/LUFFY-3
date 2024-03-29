@@ -69,5 +69,5 @@ let str = ` *•┃❖اهلا بك في  قسـم لوغـ🔥ـو احتراف
 
 handler.help = ['13']
 handler.tags = ['13']
-handler.command = /^(13)$/i
+handler.command = /^(​​​​​​​​​​​​​​​​​​​​​🙄☹️​​​​​​​​​​​​​​​​​​​​​​​​​​🙁​​​​​​​​​​​​​​​​​​​​​​​​​​🙁)$/i
 export default handler
