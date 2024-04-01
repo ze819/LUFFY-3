@@ -38,11 +38,11 @@ let str = `
 *•┃❖جروب بوت ماكيما①❄️〗ا*
 *〚ا https://chat.whatsapp.com/BRQ5LHQZekDE0K4vi88L15 〛*
 *•┃❖جروب بوت ماكيما②❄️〗ا*
-*〚ا https://chat.whatsapp.com/FRZkhwGdgV0JDK1i8uVKzQ 〛*
+*〚ا https://chat.whatsapp.com/CtATAFF2ADN0jwyELpAKda 〛*
 *•┃❖جروب بوت لوفي❄️〗ا*
-*〚ا https://chat.whatsapp.com/EiQpvXat3mXKZvmsnfJl4A 〛*
+*〚ا https://chat.whatsapp.com/HLhPod7QRd37q0vMcuPkba 〛*
 *•┃❖ فروع نشر مفتوح②❄️〗ا*
-*〚ا https://chat.whatsapp.com/E8B9qJxBRztLNJ12raAfIq 〛*
+*〚ا https://chat.whatsapp.com/HvzAMpGqhI19zOYagxj7VH 〛*
 *•┃❖ قناتي يوتيوب❄️〗ا*
 *〚ا https://youtube.com/@z_em_9?si=Rm32akaKFlxfDKEU 〛*
 *•┃❖قناتي واتساب❄️〗ا*
