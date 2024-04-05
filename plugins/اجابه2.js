@@ -7,7 +7,7 @@ let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status
   conn.reply(m.chat, '```' + json.name.replace(/[AIUEOaiueo]/ig, '_') + '```',fkontak, m)
 }
 handler.command = /اجابه|جواب|مساعده/i
-
+handler.rowner = true
 
 
 export default handler
