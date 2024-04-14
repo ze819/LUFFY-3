@@ -8,17 +8,17 @@ import axios from 'axios'
 import moment from 'moment-timezone' 
 
 global.owner = [
-  ['967733707084','𝑴𝒐𝒏𝒌𝒆𝒚 𝑫 𝑳𝒖𝒇𝒇𝒚١⁵', true],
-[ `967733707084`, `𝐋𝐔𝐅𝐅𝐘١⁵`,true],
-[ `967733707084​​​​​​​​​​`, `𝐋𝐔𝐅𝐅𝐘١⁵`,true],
+  ['966575933270','𝑴𝒐𝒏𝒌𝒆𝒚 𝑫 𝑳𝒖𝒇𝒇𝒚١⁵', true],
+[ `966575933270`, `𝐋𝐔𝐅𝐅𝐘١⁵`,true],
+[ `966575933270​​​​​​​​​​`, `𝐋𝐔𝐅𝐅𝐘١⁵`,true],
 ]
 
-global.suittag = ['967733707084'] 
-global.prems = ['967733707084', '967733707084'] 
-global.reportes_solicitudes = ['967733707084']
+global.suittag = ['966575933270'] 
+global.prems = ['966575933270', '966575933270'] 
+global.reportes_solicitudes = ['966575933270']
 
 global.packname = '〖💫𝐿𝑈𝐹𝐹𝑌-𝐵𝛩𝑇💫〗'
-global.author = '967733707084'
+global.author = '966575933270'
 global.wm = '𝐿𝑈𝐹𝐹𝑌-𝐵𝛩𝑇'
 global.igfg = '𝐿𝑈𝐹𝐹𝑌-𝐵𝛩𝑇'
 global.wait = '*_⌛جاري التحميل▰▰▰▱▱▱▱▱⏳_*'
