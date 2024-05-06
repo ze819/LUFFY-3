@@ -4,7 +4,7 @@ conn.reply(m.chat,`*┌─(قسم لو خيروك)─*\n*“${pickRandom(global.
 }
 handler.help = ['verdad']
 handler.tags = ['fun']
-handler.command = /^لو/i
+handler.command = /^لو$/i
 export default handler
 
 function pickRandom(list) {
