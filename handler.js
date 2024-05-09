@@ -1440,14 +1440,14 @@ export async function participantsUpdate({id, participants, action}) {
                         text = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || 'Welcome, @user').replace('@subject', await this.getName(id)).replace(''.toString() || 'unknow') :
                             (chat.sBye || this.bye || conn.bye || 'Bye @user')).replace(/@user/g, '@' + user.split`@`[0])
 let wel = API('popcat', '/welcomecard', {
-                                background: 'https://telegra.ph/file/a3ee054a163948322f825.jpg',
+                                background: 'https://telegra.ph/file/deabc8aa6d9dbc372721f.jpg',
                                 text1: await this.getName(user),
 	                        text2: welc,	                        
                                 text3: '​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​عددنا​​​​​​​​ الحالي:' + groupMetadata.participants.length, 
                                 avatar: pp,
                             })
                             let lea = API('popcat', '/welcomecard', {
-                                background: 'https://telegra.ph/file/a3ee054a163948322f825.jpg',
+                                background: 'https://telegra.ph/file/deabc8aa6d9dbc372721f.jpg',
                                 text1: await this.getName(user),
 				text2: outss,                       
                                 text3: 'عددنا الان:' + groupMetadata.participants.length,
